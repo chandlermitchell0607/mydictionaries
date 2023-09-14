@@ -2,7 +2,7 @@
 
 def main():
     # Create a deck of cards.
-   
+    deck = create_deck()
 
     # Get the number of cards to deal.
     num_cards = int(input('How many cards should I deal? '))
@@ -10,7 +10,7 @@ def main():
 
 
     # Deal the cards.
-
+    deal_cards(deck, num_cards)
 
     
     
@@ -19,7 +19,7 @@ def main():
 # representing a deck of cards.
 def create_deck():
     # Create a dictionary with each card and its value
-    # stored as key-value pairs.
+    # stored as key-value pairs. #keys have to be unique
     deck = {'Ace of Spades':1, '2 of Spades':2, '3 of Spades':3,
             '4 of Spades':4, '5 of Spades':5, '6 of Spades':6,
             '7 of Spades':7, '8 of Spades':8, '9 of Spades':9,
@@ -45,7 +45,7 @@ def create_deck():
             'Queen of Diamonds':10, 'King of Diamonds': 10}
 
     # Return the deck.
-
+    return deck
 
 
 
@@ -54,24 +54,31 @@ def create_deck():
 
 def deal_cards(deck, number):
     # Initialize an accumulator for the hand value.
-
+    hand_value= 0
     
     
     # DATA VALIDATION
     # Make sure the number of cards to deal is not
     # greater than the number of cards in the deck (52).
-
+    if number > 52:
+        number = 52
     
     
 
     # Deal the cards and accumulate their values.
+    import random
     
-
-
+    for i in range(number):
+        card = random.choice(list(deck))
+        card_value = deck[card]
+        print(card)
+        
+        hand_value += card_value
     
-
+        del deck[card]
     # Display the value of the hand.
-
+    total = 0
+    print(f"The total value of the hand is {hand_value}")
     
     
 
