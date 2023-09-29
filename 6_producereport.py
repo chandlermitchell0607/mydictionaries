@@ -206,4 +206,25 @@ ProduceDictionary={
         'total': 21.87
     }
 }
+'''
+Class example
+for produce,details in ProduceDictionary:
+    cost = details['cost']
+    amt_sold = details ['amt_sold']
+    stated_total = details ['total']
+    calc_total = round(cost * amt_sold,2)
 
+    if calc_total != stated_total:
+        print(f"Produce name: {produce}")
+        print(f"Calculated total: ${calc_total}")
+        print(f"Stated total: {stated_total}n")
+'''
+
+
+for i in ProduceDictionary:
+    calc = round(ProduceDictionary[i]['cost'] * ProduceDictionary[i]['amt_sold'],2)
+    stated = ProduceDictionary[i]['total']
+    if calc != stated:
+        print(f"Produce name: {i}")
+        print(f"Calculated total: ${calc:.2f}")
+        print(f"Stated total: {stated}\n")
